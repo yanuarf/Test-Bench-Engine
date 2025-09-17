@@ -1,6 +1,7 @@
 ﻿Imports System
 Imports System.IO.Ports
 Imports System.IO
+Imports System.Media ' <-- Add this import for sound playback
 
 Public Class Form1
     Dim vpb_sy, vpb_ly As Integer
@@ -13,6 +14,9 @@ Public Class Form1
     Dim StrSerialIn, StrSerialInRam As String
     Dim csvFilePath As String
     Dim csvWriter As StreamWriter = Nothing
+    Dim scanportSoundPath As String = "click.wav"
+    Dim connectSoundPath As String = "click.wav"
+    Dim disconnectSoundPath As String = "click.wav"
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.CenterToScreen()
@@ -26,9 +30,14 @@ Public Class Form1
                 ChartThrust.Series(0).Points.RemoveAt(0)
             End If
 
-            ChartTemperature.Series("Temperature").Points.AddY(0)
-            If ChartTemperature.Series(0).Points.Count = ChartLimit Then
-                ChartTemperature.Series(0).Points.RemoveAt(0)
+            'ChartTemperature.Series("Temperature").Points.AddY(0)
+            'If ChartTemperature.Series(0).Points.Count = ChartLimit Then
+            '    ChartTemperature.Series(0).Points.RemoveAt(0)
+            'End If
+
+            ChartTorque.Series("Torque").Points.AddY(0)
+            If ChartTorque.Series(0).Points.Count = ChartLimit Then
+                ChartTorque.Series(0).Points.RemoveAt(0)
             End If
 
             ChartRPM.Series("RPM               ").Points.AddY(0)
@@ -37,13 +46,17 @@ Public Class Form1
             End If
         Next
 
-        ChartThrust.ChartAreas(0).AxisY.Maximum = 100
+        ChartThrust.ChartAreas(0).AxisY.Maximum = 1000
         ChartThrust.ChartAreas(0).AxisY.Minimum = 0
         ChartThrust.ChartAreas("ChartArea1").AxisX.LabelStyle.Enabled = False
 
-        ChartTemperature.ChartAreas(0).AxisY.Maximum = 100
-        ChartTemperature.ChartAreas(0).AxisY.Minimum = -10
-        ChartTemperature.ChartAreas("ChartArea1").AxisX.LabelStyle.Enabled = False
+        'ChartTemperature.ChartAreas(0).AxisY.Maximum = 100
+        'ChartTemperature.ChartAreas(0).AxisY.Minimum = -10
+        'ChartTemperature.ChartAreas("ChartArea1").AxisX.LabelStyle.Enabled = False
+
+        ChartTorque.ChartAreas(0).AxisY.Maximum = 500
+        ChartTorque.ChartAreas(0).AxisY.Minimum = -500
+        ChartTorque.ChartAreas("ChartArea1").AxisX.LabelStyle.Enabled = False
 
         ChartRPM.ChartAreas(0).AxisY.Maximum = 10000
         ChartRPM.ChartAreas(0).AxisY.Minimum = 0
@@ -60,6 +73,8 @@ Public Class Form1
     End Sub
 
     Private Sub Scanport_Click(sender As Object, e As EventArgs) Handles Scanport.Click
+        PlaySoundEffect(scanportSoundPath) ' Play sound when Scanport is clicked
+
         GroupConnection.Focus()
         ComboBoxPort.Items.Clear()
         Dim myPort As Array
@@ -80,6 +95,8 @@ Public Class Form1
     End Sub
 
     Private Sub Connect_Click(sender As Object, e As EventArgs) Handles Connect.Click
+        PlaySoundEffect(connectSoundPath) ' Play sound when Connect is clicked
+
         GroupConnection.Focus()
         GroupThrotle.Enabled = True
         GroupData.Enabled = True
@@ -89,12 +106,17 @@ Public Class Form1
             SerialPort1.Open()
             TimerSerial.Start()
 
-            ' Create unique CSV filename with datetime
+            ' Ensure "datalog" folder exists
+            Dim datalogFolder As String = Path.Combine(Application.StartupPath, "Log")
+            If Not Directory.Exists(datalogFolder) Then
+                Directory.CreateDirectory(datalogFolder)
+            End If
+
+            ' Create unique CSV filename with datetime in "datalog" folder
             Dim timestampFile As String = DateTime.Now.ToString("yyyyMMdd_HHmmss")
-            csvFilePath = $"data_log_{timestampFile}.csv"
+            csvFilePath = Path.Combine(datalogFolder, $"data_log_{timestampFile}.csv")
             csvWriter = New StreamWriter(csvFilePath, False)
-            ' Write header with timestamp and label names
-            csvWriter.WriteLine("Timestamp,ThrotleValue,Voltage,Current,Daya,Temp,Thrust,Torque,RPM")
+            csvWriter.WriteLine("Timestamp,ThrotleValue(%),Voltage(V),Current(A),Power(W),Temp(C),Thrust(g),Torque(g),RPM")
             csvWriter.Flush()
 
             Connect.SendToBack()
@@ -105,6 +127,8 @@ Public Class Form1
     End Sub
 
     Private Sub Disconnect_Click(sender As Object, e As EventArgs) Handles Disconnect.Click
+        PlaySoundEffect(disconnectSoundPath) ' Play sound when Disconnect is clicked
+
         GroupConnection.Focus()
         GroupThrotle.Enabled = False
         GroupData.Enabled = False
@@ -121,6 +145,18 @@ Public Class Form1
         Connect.BringToFront()
     End Sub
 
+    ' Add this helper function to play sound effects
+    Private Sub PlaySoundEffect(soundPath As String)
+        Try
+            If File.Exists(soundPath) Then
+                Using player As New SoundPlayer(soundPath)
+                    player.Play()
+                End Using
+            End If
+        Catch ex As Exception
+            ' Optionally handle sound errors (silent fail)
+        End Try
+    End Sub
 
     Private Sub TimerSerial_Tick(sender As Object, e As EventArgs) Handles TimerSerial.Tick
         Try
@@ -194,6 +230,10 @@ Public Class Form1
                     End If
                 End If
 
+                'tambahi konversi gram ke newton untuk thrust dan torsi
+                ' untuk torsi ditambahi panjang lengan
+                'ThrustResult = (Val(ThrustResult) * 9.8 / 1000).ToString("F2") ' Convert grams to Newtons
+                'TorqueResult = (Val(TorqueResult) * 9.8 / 1000 * 0.06).ToString("F2") ' Convert grams to Newton-meters (assuming 6 cm arm length)
 
                 ThrotleValue.Text = TrackBarThrotle.Value
                 LabelVoltage.Text = VoltageResult
@@ -212,10 +252,17 @@ Public Class Form1
                     End If
                 End If
 
-                If Not String.IsNullOrEmpty(TempResult) Then
-                    ChartTemperature.Series("Temperature").Points.AddY(Val(TempResult))
-                    If ChartTemperature.Series(0).Points.Count = ChartLimit Then
-                        ChartTemperature.Series(0).Points.RemoveAt(0)
+                'If Not String.IsNullOrEmpty(TempResult) Then
+                '    ChartTemperature.Series("Temperature").Points.AddY(Val(TempResult))
+                '    If ChartTemperature.Series(0).Points.Count = ChartLimit Then
+                '        ChartTemperature.Series(0).Points.RemoveAt(0)
+                '    End If
+                'End If
+
+                If Not String.IsNullOrEmpty(TorqueResult) Then
+                    ChartTorque.Series("Torque").Points.AddY(Val(TorqueResult))
+                    If ChartTorque.Series(0).Points.Count = ChartLimit Then
+                        ChartTorque.Series(0).Points.RemoveAt(0)
                     End If
                 End If
 
@@ -243,7 +290,7 @@ Public Class Form1
             End If
             Disconnect.SendToBack()
             Connect.BringToFront()
-            MsgBox("Please check the Hardware and Please connect LAGI." & ex.Message, MsgBoxStyle.Critical, "Connection failed !!!")
+            MsgBox("Please check the Hardware and Please connect again!" & ex.Message, MsgBoxStyle.Critical, "Connection failed !!!")
             Return
         End Try
     End Sub
@@ -255,4 +302,5 @@ Public Class Form1
 
         End If
     End Sub
+
 End Class

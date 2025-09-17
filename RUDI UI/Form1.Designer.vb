@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
@@ -32,6 +32,9 @@ Partial Class Form1
         Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
         Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
         Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.GroupConnection = New System.Windows.Forms.GroupBox()
         Me.Connect = New System.Windows.Forms.Button()
@@ -71,9 +74,11 @@ Partial Class Form1
         Me.ChartRPM = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.SerialPort1 = New System.IO.Ports.SerialPort(Me.components)
         Me.TimerSerial = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.ChartTorque = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.GroupConnection.SuspendLayout()
         Me.GroupThrotle.SuspendLayout()
         CType(Me.TrackBarThrotle, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,9 +87,9 @@ Partial Class Form1
         CType(Me.ChartThrust, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChartTemperature, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ChartRPM, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartTorque, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupConnection
@@ -93,8 +98,8 @@ Partial Class Form1
         Me.GroupConnection.Controls.Add(Me.ComboBoxPort)
         Me.GroupConnection.Controls.Add(Me.Scanport)
         Me.GroupConnection.Controls.Add(Me.Disconnect)
-        Me.GroupConnection.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupConnection.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.GroupConnection.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupConnection.ForeColor = System.Drawing.Color.Indigo
         Me.GroupConnection.Location = New System.Drawing.Point(112, 154)
         Me.GroupConnection.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupConnection.Name = "GroupConnection"
@@ -133,7 +138,7 @@ Partial Class Form1
         '
         'Scanport
         '
-        Me.Scanport.BackColor = System.Drawing.Color.Orange
+        Me.Scanport.BackColor = System.Drawing.Color.DarkGreen
         Me.Scanport.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Scanport.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.Scanport.Location = New System.Drawing.Point(20, 41)
@@ -161,8 +166,8 @@ Partial Class Form1
         '
         Me.GroupThrotle.Controls.Add(Me.ThrotleValue)
         Me.GroupThrotle.Controls.Add(Me.TrackBarThrotle)
-        Me.GroupThrotle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupThrotle.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.GroupThrotle.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupThrotle.ForeColor = System.Drawing.Color.Indigo
         Me.GroupThrotle.Location = New System.Drawing.Point(112, 289)
         Me.GroupThrotle.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupThrotle.Name = "GroupThrotle"
@@ -170,7 +175,7 @@ Partial Class Form1
         Me.GroupThrotle.Size = New System.Drawing.Size(396, 123)
         Me.GroupThrotle.TabIndex = 4
         Me.GroupThrotle.TabStop = False
-        Me.GroupThrotle.Text = "Throtle Control"
+        Me.GroupThrotle.Text = "Throttle Control"
         '
         'ThrotleValue
         '
@@ -193,6 +198,7 @@ Partial Class Form1
         Me.TrackBarThrotle.Name = "TrackBarThrotle"
         Me.TrackBarThrotle.Size = New System.Drawing.Size(289, 56)
         Me.TrackBarThrotle.TabIndex = 5
+        Me.TrackBarThrotle.TickFrequency = 10
         '
         'GroupData
         '
@@ -217,8 +223,8 @@ Partial Class Form1
         Me.GroupData.Controls.Add(Me.LabelDaya)
         Me.GroupData.Controls.Add(Me.LabelCurrent)
         Me.GroupData.Controls.Add(Me.LabelVoltage)
-        Me.GroupData.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupData.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.GroupData.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupData.ForeColor = System.Drawing.Color.Indigo
         Me.GroupData.Location = New System.Drawing.Point(112, 422)
         Me.GroupData.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupData.Name = "GroupData"
@@ -230,51 +236,51 @@ Partial Class Form1
         '
         'Label14
         '
-        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label14.Location = New System.Drawing.Point(285, 312)
+        Me.Label14.Location = New System.Drawing.Point(285, 308)
         Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(49, 23)
+        Me.Label14.Size = New System.Drawing.Size(70, 23)
         Me.Label14.TabIndex = 29
-        Me.Label14.Text = "Rpm"
+        Me.Label14.Text = "r/min"
         '
         'Label13
         '
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label13.Location = New System.Drawing.Point(285, 266)
+        Me.Label13.Location = New System.Drawing.Point(285, 261)
         Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(49, 23)
+        Me.Label13.Size = New System.Drawing.Size(70, 37)
         Me.Label13.TabIndex = 28
-        Me.Label13.Text = "Nm"
+        Me.Label13.Text = "g"
         '
         'Label12
         '
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label12.Location = New System.Drawing.Point(285, 223)
+        Me.Label12.Location = New System.Drawing.Point(285, 219)
         Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(49, 23)
+        Me.Label12.Size = New System.Drawing.Size(49, 33)
         Me.Label12.TabIndex = 27
-        Me.Label12.Text = "Gram"
+        Me.Label12.Text = "g"
         '
         'Label11
         '
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label11.Location = New System.Drawing.Point(285, 132)
+        Me.Label11.Location = New System.Drawing.Point(285, 127)
         Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(49, 23)
         Me.Label11.TabIndex = 26
-        Me.Label11.Text = "Watt"
+        Me.Label11.Text = "W"
         '
         'Label10
         '
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.Label10.Location = New System.Drawing.Point(285, 178)
         Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
@@ -285,9 +291,9 @@ Partial Class Form1
         '
         'Label9
         '
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label9.Location = New System.Drawing.Point(285, 84)
+        Me.Label9.Location = New System.Drawing.Point(285, 88)
         Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(49, 23)
@@ -296,7 +302,7 @@ Partial Class Form1
         '
         'Label8
         '
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
         Me.Label8.Location = New System.Drawing.Point(285, 45)
         Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
@@ -307,67 +313,67 @@ Partial Class Form1
         '
         'Label7
         '
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label7.Location = New System.Drawing.Point(51, 308)
+        Me.Label7.Location = New System.Drawing.Point(20, 308)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(100, 28)
+        Me.Label7.Size = New System.Drawing.Size(104, 28)
         Me.Label7.TabIndex = 22
         Me.Label7.Text = "RPM     :"
         '
         'Label6
         '
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label6.Location = New System.Drawing.Point(51, 262)
+        Me.Label6.Location = New System.Drawing.Point(20, 261)
         Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(100, 28)
+        Me.Label6.Size = New System.Drawing.Size(112, 28)
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "Torque  :"
         '
         'Label5
         '
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label5.Location = New System.Drawing.Point(51, 219)
+        Me.Label5.Location = New System.Drawing.Point(20, 219)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(100, 28)
+        Me.Label5.Size = New System.Drawing.Size(112, 28)
         Me.Label5.TabIndex = 20
         Me.Label5.Text = "Thrust   :"
         '
         'Label3
         '
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label3.Location = New System.Drawing.Point(51, 174)
+        Me.Label3.Location = New System.Drawing.Point(20, 173)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(100, 28)
+        Me.Label3.Size = New System.Drawing.Size(117, 28)
         Me.Label3.TabIndex = 19
-        Me.Label3.Text = "Temp     :"
+        Me.Label3.Text = "Temp    :"
         '
         'Label2
         '
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.Label2.Location = New System.Drawing.Point(51, 126)
+        Me.Label2.Location = New System.Drawing.Point(20, 127)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(100, 28)
+        Me.Label2.Size = New System.Drawing.Size(135, 28)
         Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Daya     :"
+        Me.Label2.Text = "Power    :"
         '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label1.Location = New System.Drawing.Point(51, 84)
+        Me.Label1.Location = New System.Drawing.Point(20, 84)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(100, 28)
+        Me.Label1.Size = New System.Drawing.Size(117, 27)
         Me.Label1.TabIndex = 17
         Me.Label1.Text = "Current  :"
         '
@@ -386,12 +392,12 @@ Partial Class Form1
         '
         'Label4
         '
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
-        Me.Label4.Location = New System.Drawing.Point(51, 41)
+        Me.Label4.Location = New System.Drawing.Point(20, 38)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(100, 28)
+        Me.Label4.Size = New System.Drawing.Size(117, 30)
         Me.Label4.TabIndex = 11
         Me.Label4.Text = "Voltage  :"
         '
@@ -477,8 +483,8 @@ Partial Class Form1
         '
         Me.GroupInfo.Controls.Add(Me.Label16)
         Me.GroupInfo.Controls.Add(Me.Label15)
-        Me.GroupInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupInfo.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.GroupInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupInfo.ForeColor = System.Drawing.Color.Indigo
         Me.GroupInfo.Location = New System.Drawing.Point(112, 797)
         Me.GroupInfo.Margin = New System.Windows.Forms.Padding(4)
         Me.GroupInfo.Name = "GroupInfo"
@@ -491,22 +497,22 @@ Partial Class Form1
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Label16.Location = New System.Drawing.Point(39, 66)
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.Color.Black
+        Me.Label16.Location = New System.Drawing.Point(39, 78)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(176, 20)
+        Me.Label16.Size = New System.Drawing.Size(247, 29)
         Me.Label16.TabIndex = 1
         Me.Label16.Text = "Current Sensor : 100A"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Black
         Me.Label15.Location = New System.Drawing.Point(39, 39)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(198, 20)
+        Me.Label15.Size = New System.Drawing.Size(271, 29)
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "Controller          :  ESP32"
         '
@@ -528,13 +534,13 @@ Partial Class Form1
         ChartArea1.Name = "ChartArea1"
         Me.ChartThrust.ChartAreas.Add(ChartArea1)
         Me.ChartThrust.ImeMode = System.Windows.Forms.ImeMode.Off
-        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
+        Legend1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Legend1.ForeColor = System.Drawing.Color.DeepSkyBlue
         Legend1.InterlacedRows = True
         Legend1.IsTextAutoFit = False
         Legend1.Name = "Legend1"
         Me.ChartThrust.Legends.Add(Legend1)
-        Me.ChartThrust.Location = New System.Drawing.Point(551, 151)
+        Me.ChartThrust.Location = New System.Drawing.Point(533, 151)
         Me.ChartThrust.Margin = New System.Windows.Forms.Padding(4)
         Me.ChartThrust.Name = "ChartThrust"
         Series1.ChartArea = "ChartArea1"
@@ -543,7 +549,7 @@ Partial Class Form1
         Series1.Legend = "Legend1"
         Series1.Name = "Thrust            "
         Me.ChartThrust.Series.Add(Series1)
-        Me.ChartThrust.Size = New System.Drawing.Size(873, 204)
+        Me.ChartThrust.Size = New System.Drawing.Size(934, 204)
         Me.ChartThrust.TabIndex = 8
         Me.ChartThrust.Text = "Thrush"
         '
@@ -565,7 +571,7 @@ Partial Class Form1
         ChartArea2.Name = "ChartArea1"
         Me.ChartTemperature.ChartAreas.Add(ChartArea2)
         Me.ChartTemperature.ImeMode = System.Windows.Forms.ImeMode.Off
-        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
+        Legend2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Legend2.ForeColor = System.Drawing.Color.SandyBrown
         Legend2.InterlacedRows = True
         Legend2.IsTextAutoFit = False
@@ -603,13 +609,13 @@ Partial Class Form1
         ChartArea3.Name = "ChartArea1"
         Me.ChartRPM.ChartAreas.Add(ChartArea3)
         Me.ChartRPM.ImeMode = System.Windows.Forms.ImeMode.Off
-        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold)
+        Legend3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
         Legend3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
         Legend3.InterlacedRows = True
         Legend3.IsTextAutoFit = False
         Legend3.Name = "Legend1"
         Me.ChartRPM.Legends.Add(Legend3)
-        Me.ChartRPM.Location = New System.Drawing.Point(533, 574)
+        Me.ChartRPM.Location = New System.Drawing.Point(516, 574)
         Me.ChartRPM.Margin = New System.Windows.Forms.Padding(4)
         Me.ChartRPM.Name = "ChartRPM"
         Series3.ChartArea = "ChartArea1"
@@ -619,42 +625,89 @@ Partial Class Form1
         Series3.Legend = "Legend1"
         Series3.Name = "RPM               "
         Me.ChartRPM.Series.Add(Series3)
-        Me.ChartRPM.Size = New System.Drawing.Size(893, 204)
+        Me.ChartRPM.Size = New System.Drawing.Size(958, 204)
         Me.ChartRPM.TabIndex = 10
         Me.ChartRPM.Text = "RPM"
         '
         'TimerSerial
         '
         '
+        'ImageList1
+        '
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.RUDI_UI.My.Resources.Resources.Main_Logo_of_National_Research_and_Innovation_Agency_of_Indonesia_svg
+        Me.PictureBox3.Location = New System.Drawing.Point(1191, 12)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(86, 110)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 13
+        Me.PictureBox3.TabStop = False
+        '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.RUDI_UI.My.Resources.Resources.icon
-        Me.PictureBox2.Location = New System.Drawing.Point(269, 19)
+        Me.PictureBox2.Location = New System.Drawing.Point(268, 19)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(136, 94)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 12
         Me.PictureBox2.TabStop = False
         '
-        'PictureBox1
+        'Label17
         '
-        Me.PictureBox1.Image = Global.RUDI_UI.My.Resources.Resources.heading
-        Me.PictureBox1.Location = New System.Drawing.Point(431, 44)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(715, 57)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 11
-        Me.PictureBox1.TabStop = False
+        Me.Label17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.SystemColors.InactiveCaptionText
+        Me.Label17.Location = New System.Drawing.Point(429, 19)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(739, 94)
+        Me.Label17.TabIndex = 30
+        Me.Label17.Text = "Electric Engine Test Bench"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'PictureBox3
+        'ChartTorque
         '
-        Me.PictureBox3.Image = Global.RUDI_UI.My.Resources.Resources.icon
-        Me.PictureBox3.Location = New System.Drawing.Point(1165, 19)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(136, 94)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 13
-        Me.PictureBox3.TabStop = False
+        Me.ChartTorque.BackColor = System.Drawing.Color.Transparent
+        ChartArea4.AxisX.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX2.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX2.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX2.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX2.MinorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisX2.TitleForeColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisY.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Gainsboro
+        ChartArea4.Name = "ChartArea1"
+        Me.ChartTorque.ChartAreas.Add(ChartArea4)
+        Me.ChartTorque.ImeMode = System.Windows.Forms.ImeMode.Off
+        Legend4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold)
+        Legend4.ForeColor = System.Drawing.Color.SandyBrown
+        Legend4.InterlacedRows = True
+        Legend4.IsTextAutoFit = False
+        Legend4.Name = "Legend1"
+        Me.ChartTorque.Legends.Add(Legend4)
+        Me.ChartTorque.Location = New System.Drawing.Point(533, 363)
+        Me.ChartTorque.Margin = New System.Windows.Forms.Padding(4)
+        Me.ChartTorque.Name = "ChartTorque"
+        Series4.ChartArea = "ChartArea1"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline
+        Series4.Color = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
+        Series4.LabelForeColor = System.Drawing.Color.SpringGreen
+        Series4.Legend = "Legend1"
+        Series4.Name = "Torque"
+        Me.ChartTorque.Series.Add(Series4)
+        Me.ChartTorque.Size = New System.Drawing.Size(887, 204)
+        Me.ChartTorque.TabIndex = 31
+        Me.ChartTorque.Text = "Torque"
         '
         'Form1
         '
@@ -662,9 +715,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1532, 951)
+        Me.Controls.Add(Me.ChartTorque)
+        Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ChartRPM)
         Me.Controls.Add(Me.ChartTemperature)
         Me.Controls.Add(Me.ChartThrust)
@@ -688,9 +742,9 @@ Partial Class Form1
         CType(Me.ChartThrust, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChartTemperature, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ChartRPM, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartTorque, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -731,9 +785,11 @@ Partial Class Form1
     Friend WithEvents Label11 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label9 As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label15 As Label
+    Friend WithEvents ImageList1 As ImageList
+    Friend WithEvents Label17 As Label
+    Friend WithEvents ChartTorque As DataVisualization.Charting.Chart
 End Class
